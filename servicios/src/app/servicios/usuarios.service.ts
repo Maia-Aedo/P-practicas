@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario';
 
+// siempre tiene que tener decorador injectable
 @Injectable({
   providedIn: 'root'
 })
@@ -20,5 +21,7 @@ export class UsuariosService {
   getUsers() {
     return this.usuarios
   }
+
+  
 
 }

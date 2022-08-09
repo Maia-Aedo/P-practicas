@@ -10,6 +10,8 @@ export class AlertService {
   //parametro
   mostrarAlert(mensaje:string) {
     alert(mensaje)
+
+    
   }
 
 }

@@ -7,6 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
+import { AlertService } from './servicios/alert.service';
+import { UsuariosService } from './servicios/usuarios.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { MenubarModule } from 'primeng/menubar';
     ButtonModule,
     MenubarModule
   ],
-  providers: [],
+  providers: [
+    AlertService,
+    UsuariosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

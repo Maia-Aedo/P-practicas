@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from './servicios/alert.service';
 import { MenuItem } from 'primeng/api';
-import { Usuario } from './models/usuario';
 import { UsuariosService } from './servicios/usuarios.service';
 
 @Component({
@@ -14,9 +13,13 @@ export class AppComponent implements OnInit{
 
   //en los parametros del constructor se inyectan los servicios
   constructor(private servicio2:AlertService, private servicioUsuarios:UsuariosService) { }
-  usuarios=this.servicioUsuarios.getUsers();
+  usuarios=this.servicioUsuarios.getUsers();  
+
+  adminVisible = false;
 
   ngOnInit(): void {
+    console.log(this.usuarios);
+    
     this.items = [
       {
         label: 'Home',
@@ -34,6 +37,18 @@ export class AppComponent implements OnInit{
   
   mostrar() {
     this.servicio2.mostrarAlert("Estoy siendo llamado desde appcomponent")
+    this.VerificarUsuario()
+  }
+
+  VerificarUsuario(){
+    this.usuarios.forEach(usuario => {
+      if(usuario.nombreUsuario === 'Maia'){
+        if(usuario.contrasena === '12345'){
+          this.adminVisible = true;
+          this.ngOnInit
+        }
+      }
+    })
   }
 
 }
